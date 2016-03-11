@@ -1,71 +1,25 @@
-netconf
-=======
-
-[![Build Status](https://travis-ci.org/Juniper/go-netconf.png)](https://travis-ci.org/Juniper/go-netconf)
-
+# netconf
 
 This library is a simple NETCONF client based on [RFC6241](http://tools.ietf.org/html/rfc6241) and [RFC6242](http://tools.ietf.org/html/rfc6242) (although not fully compliant yet).
 
-> **Note:** this is currently pre-alpha release.  API and features may and probably will change.  Suggestions and pull requests are welcome.
-
-Features
---------
+# Features
 * Support for SSH transport using go.crypto/ssh. (Other transports are planned).
 * Built in RPC support (in progress).
 * Support for custom RPCs.
 * Independent of XML library.  Free to choose encoding/xml or another third party library to parse the results.
+* Client struct in the vain of UpGuard's sftp fork (might need to refactor this slightly)
 
-Install
--------
+# Install
+    go get github.com/ScriptRock/go-netconf/netconf
 
-    Requires Go 1.2 or later!
+# Documentation
 
-    go get github.com/Juniper/go-netconf/netconf
-
-Example
--------
-```Go
-package main
-
-import (
-	"code.google.com/p/go.crypto/ssh"
-	"fmt"
-	"github.com/Juniper/go-netconf/netconf"
-)
-
-func main() {
-	username := "myuser"
-	password := "mypassword"
-
-	s, err := netconf.DialSSH(flag.Arg(0),
-		netconf.SSHConfigPassword(username, password))
-	if err != nil {
-		panic(err)
-	}
-
-	defer s.Close()
-
-	fmt.Printf("Server Capabilities: '%+v'\n", s.ServerCapabilities)
-	fmt.Printf("Session Id: %d\n\n", s.SessionID)
-
-	//reply, err := s.Exec([]byte("<rpc><get-config><source><running/></source></get-config></rpc>"))
-	reply, err := s.Exec(netconf.MethodGetConfig("running"))
-	if err != nil {
-		panic(err)
-	}
-	fmt.Printf("Reply: %+v", reply)
-}
-
-```
-
-Documentation
--------------
 You can view full API documentation at GoDoc:
 
 http://godoc.org/github.com/Juniper/go-netconf/netconf
 
-License
--------
+# License
+
 (BSD 2)
 
 Copyright © 2013, Juniper Networks
@@ -82,7 +36,8 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” 
 
 The views and conclusions contained in the software and documentation are those of the authors and should not be interpreted as representing official policies, either expressed or implied, of Juniper Networks.
 
-Authors and Contributors
-------------------------
+# Authors and Contributors
+
 * [Brandon Bennett](https://github.com/nemith), Facebook
 * [Charl Matthee](https://github.com/charl)
+* [Nick Wood](https://github.com/nickswift) UpGuard
