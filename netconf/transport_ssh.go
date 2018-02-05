@@ -2,7 +2,8 @@ package netconf
 
 import (
 	"fmt"
-	"golang.org/x/crypto/ssh"
+	//"golang.org/x/crypto/ssh"
+	"github.com/ScriptRock/crypto/ssh"
 	"net"
 	"strings"
 )
