@@ -10,7 +10,7 @@ This library is a simple NETCONF client based on [RFC6241](http://tools.ietf.org
 * Client struct in the vain of UpGuard's sftp fork (might need to refactor this slightly)
 
 # Install
-    go get github.com/ScriptRock/go-netconf/netconf
+    go get github.com/cloudhousetech/go-netconf/netconf
 
 # Documentation
 

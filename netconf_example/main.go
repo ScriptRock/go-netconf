@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/ScriptRock/crypto/ssh"
-	"github.com/ScriptRock/netconf"
+	"github.com/cloudhousetech/crypto/ssh"
+	"github.com/cloudhousetech/netconf"
 )
 
 func main() {

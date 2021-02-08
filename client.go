@@ -3,7 +3,7 @@ package netconf
 import (
 	"io"
 
-	"github.com/ScriptRock/crypto/ssh"
+	"github.com/cloudhousetech/crypto/ssh"
 )
 
 // TODO: we may want to do some of the fancy concurrency stuff our SFTP client does, but we should probably refactor

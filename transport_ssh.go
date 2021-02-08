@@ -1,7 +1,7 @@
 package netconf
 
 import (
-	"github.com/ScriptRock/crypto/ssh"
+	"github.com/cloudhousetech/crypto/ssh"
 )
 
 const (
